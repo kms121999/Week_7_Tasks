@@ -86,7 +86,7 @@ rand_stream(Seed)->
     receive
         % Pid = Id of who's asking
         {Pid} ->
-            %      (    a      * seed +   c  ) mod   m
+            %            (    a      * seed +   c  ) mod   m
             Next_value = (1103515245 * Seed + 12345) rem 2147483648,
             Pid ! {Next_value,[]},
             rand_stream(Next_value)
